@@ -3,10 +3,13 @@ const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
 const books = require('./routes/books')
+const dotenv = require('dotenv')
+dotenv.config()
 const app = express()
 
+
 require('./database')
-app.set('port', 3000)
+app.set('port', process.env.PORT || 3000)
 
 app.use(morgan('dev'))
 const storage = multer.diskStorage({
