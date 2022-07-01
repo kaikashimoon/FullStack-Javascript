@@ -5,6 +5,7 @@ const path = require('path');
 const books = require('./routes/books')
 const app = express()
 
+require('./database')
 app.set('port', 3000)
 
 app.use(morgan('dev'))
