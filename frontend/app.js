@@ -22,7 +22,7 @@ document.getElementById('book-form')
 
         const ui = new UI()
         ui.addNewBooks(formData)
-
+        ui.renderMessages('New Book Added', 'bg-success text-white', 3000)
         e.preventDefault()
     })
 
@@ -32,6 +32,7 @@ document.getElementById('books-cards')
         if(e.target.classList.contains('delete')){
            const ui = new UI()
            ui.deleteBook(e.target.getAttribute('_id'))
+           ui.renderMessages('Book Removed', 'bg-danger text-white', 3000)
         }
         e.preventDefault()
     })
