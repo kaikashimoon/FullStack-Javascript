@@ -1,6 +1,6 @@
 class BookService {
     constructor() {
-        this.URI = 'http://localhost:5000/api/books'
+        this.URI = 'https://javascriptfullstackkaikrmen.herokuapp.com/api/books'
     }
 
     async getBooks() { 
