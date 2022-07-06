@@ -12,7 +12,8 @@ const getBooks = async (req, res) => {
 
 const createBooks = async (req, res) => {  
     try {
-        const {title, author, isbn, imagePath} = req.body
+        const {title, author, isbn} = req.body
+        const imagePath = '/uploads/' + req.file.filename
         const newBook = new Book({
             title,
             author,
