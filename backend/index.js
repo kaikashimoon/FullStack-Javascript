@@ -3,13 +3,11 @@ const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
 const books = require('./routes/books')
+const dotenv = require('dotenv')
+dotenv.config()
 const cors = require("cors");
 const app = express()
 
-if(process.env.NODE_ENV !== 'production'){
-    const dotenv = require('dotenv')
-    dotenv.config()
-}
 
 require('./database')
 app.set('port', process.env.PORT || 3000)
