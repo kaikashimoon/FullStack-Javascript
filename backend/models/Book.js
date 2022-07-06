@@ -17,8 +17,12 @@ const bookSchema  = new Schema({
         type: "string",
         required: true
     },
-}, {
-    timestamps: true,
+    created_at: { 
+        type: Date, 
+        required: true, 
+        default: Date.now }
+
+}, { 
     versionKey: false
 })
 
