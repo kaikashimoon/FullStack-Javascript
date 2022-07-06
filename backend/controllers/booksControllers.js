@@ -1,4 +1,6 @@
 const Book = require('../models/Book')
+const {unlink} = require('fs-extra')
+const path = require('path')
 
 const getBooks = async (req, res) => {
    try {
@@ -34,7 +36,8 @@ const deleteBook = async (req, res) => {
         if (!findBook) {
             res.status(404).json({ message: 'Book not found' })
         } 
-        await findBook.remove()
+        const book = await findBook.remove()
+        await unlink(path.resolve('./backend/public/' + book.imagePath));
         res.status(201).json({ message: 'Book deleted successfully' })
         
     } catch (error) {

@@ -8,7 +8,7 @@ class UI {
         const books = await bookService.getBooks();
         const booksCardContainer = document.getElementById('books-cards');
         booksCardContainer.innerHTML = '';
-        books.forEach((book) => {
+        books.reverse().forEach((book) => {
           const div = document.createElement('div');
           div.className = 'animated fadeInRight';
           div.innerHTML = `
@@ -48,8 +48,9 @@ class UI {
 
     }
 
-    async deleteBook() {
-
+    async deleteBook(bookId) {
+        await bookService.deleteBook(bookId)
+        this.renderBooks()
     }
 }
 
